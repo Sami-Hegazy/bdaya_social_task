@@ -34,7 +34,7 @@ class PostsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Posts'),
+        child: Text('Welcome to Posts'),
       ),
     );
   }

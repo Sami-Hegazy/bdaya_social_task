@@ -1,7 +1,9 @@
 import 'package:bdaya_social_task/features/auth/view.dart';
 import 'package:bdaya_social_task/features/home/view.dart';
+import 'package:bdaya_social_task/features/post_details/view.dart';
 import 'package:bdaya_social_task/features/posts/view.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
@@ -61,40 +63,37 @@ class RoutingService {
         }
         return null;
       },
-      routes: const [
-        // GoRoute(
-        //   path: ':id',
-        //   name: AppRouteName.postDetails,
-        //   builder: (context, state) {
-        //     return PostDetailsReactiveView.hooked();
-        //   },
-        //   redirect: (context, state) {
-        //     return null;
-        //   },
-        //   routes: [
-        //     GoRoute(
-        //       path: 'comments',
-        //       name: AppRouteName.postComments,
-        //       builder: (context, state) {
-        //         return const SizedBox.shrink();
-        //       },
-        //     ),
-        //     GoRoute(
-        //       path: 'likes',
-        //       name: AppRouteName.postLikes,
-        //       builder: (context, state) {
-        //         return const SizedBox.shrink();
-        //       },
-        //     ),
-        //     GoRoute(
-        //       path: 'shares',
-        //       name: AppRouteName.postShares,
-        //       builder: (context, state) {
-        //         return const SizedBox.shrink();
-        //       },
-        //     )
-        //   ],
-        // ),
+      routes: [
+        GoRoute(
+          path: ':id',
+          name: AppRouteName.postDetails,
+          builder: (context, state) {
+            return PostDetailsView.hooked();
+          },
+          routes: [
+            GoRoute(
+              path: 'comments',
+              name: AppRouteName.postComments,
+              builder: (context, state) {
+                return const SizedBox.shrink();
+              },
+            ),
+            GoRoute(
+              path: 'likes',
+              name: AppRouteName.postLikes,
+              builder: (context, state) {
+                return const SizedBox.shrink();
+              },
+            ),
+            GoRoute(
+              path: 'shares',
+              name: AppRouteName.postShares,
+              builder: (context, state) {
+                return const SizedBox.shrink();
+              },
+            )
+          ],
+        ),
       ],
     ),
   ]);

@@ -1,4 +1,6 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
+import 'package:bdaya_social_task/di/get_it_config.dart';
+import 'package:bdaya_social_task/services/user_service.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
 
@@ -34,13 +36,14 @@ class AuthView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
-        child: Text('Auth'),
+        child: Text('Welcome to Auth'),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            // getIt<UserService>().currentUser.$ = 'Sami';
-          },
-          label: const Text('LogIn')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          getIt<UserService>().currentUser.$ = 'Sami';
+        },
+        child: const Text('Login'),
+      ),
     );
   }
 }

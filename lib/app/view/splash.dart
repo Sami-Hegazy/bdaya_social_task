@@ -7,8 +7,8 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: Center(
-      child: CircularProgressIndicator(
-        color: Colors.amber,
+      child: CircularProgressIndicator.adaptive(
+        backgroundColor: Colors.amber,
       ),
     ));
   }
