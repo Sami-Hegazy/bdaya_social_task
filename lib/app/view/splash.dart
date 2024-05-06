@@ -5,10 +5,12 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: Center(
-      child: CircularProgressIndicator.adaptive(
-        backgroundColor: Colors.amber,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width / 1.5,
+        height: MediaQuery.of(context).size.width / 1.5,
+        child: Image.asset('assets/images/Instagram-logo.png'),
       ),
     ));
   }

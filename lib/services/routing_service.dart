@@ -1,4 +1,4 @@
-import 'package:bdaya_social_task/features/auth/view.dart';
+import 'package:bdaya_social_task/features/auth/login_view.dart';
 import 'package:bdaya_social_task/features/home/view.dart';
 import 'package:bdaya_social_task/features/post_details/view.dart';
 import 'package:bdaya_social_task/features/posts/view.dart';
@@ -30,12 +30,23 @@ class RoutingService {
       builder: (context, state) {
         return HomeView.hooked();
       },
+      redirect: (context, state) {
+        if (userService.currentUser.of(context) == null) {
+          return state.namedLocation(
+            AppRouteName.auth,
+            queryParameters: {
+              'old_route': state.uri.toString(),
+            },
+          );
+        }
+        return null;
+      },
     ),
     GoRoute(
       path: '/auth',
       name: AppRouteName.auth,
       builder: (context, state) {
-        return AuthView.hooked();
+        return LoginView.hooked();
       },
       redirect: (context, state) {
         if (userService.currentUser.of(context) != null) {

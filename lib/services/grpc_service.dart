@@ -12,3 +12,6 @@ class GrpcService {
 
   PostServiceClient get postApi => PostServiceClient(channel);
 }
+
+
+//50051

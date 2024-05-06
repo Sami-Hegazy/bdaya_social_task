@@ -32,9 +32,40 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Home'),
+    // controller.getPosts();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: SizedBox(
+        height: 500,
+        child: FutureBuilder(
+          future: controller.getPosts(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('Error: ${snapshot.error}'),
+              );
+            } else {
+              final posts = snapshot.data ?? [];
+              return ListView.builder(
+                itemCount: posts.length,
+                itemBuilder: (context, index) {
+                  final post = posts[index];
+                  return ListTile(
+                    title: Text(post.id),
+                    subtitle: Text(post.content),
+                    // Add more widgets to display other post details
+                  );
+                },
+              );
+            }
+          },
+        ),
       ),
     );
   }
