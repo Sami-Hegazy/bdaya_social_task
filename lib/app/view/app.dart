@@ -5,6 +5,7 @@ import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/services/init_service.dart';
 import 'package:bdaya_social_task/services/routing_service.dart';
 import 'package:bdaya_social_task/services/theme_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -15,6 +16,9 @@ class App extends StatelessWidget {
     return SharedValue.wrapApp(
       Builder(builder: (context) {
         return MaterialApp.router(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           theme: getIt<ThemeService>().appTheme.of(context),
           // darkTheme: ThemeData.dark(),
           // themeMode: ,

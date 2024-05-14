@@ -1,6 +1,8 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
+import 'package:bdaya_social_task/utils/extentions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
@@ -109,9 +111,9 @@ class LoginView extends StatelessWidget {
                     backgroundColor: Colors.blue,
                     minimumSize: const Size(120, 40),
                   ),
-                  child: const Text(
-                    'Log In',
-                    style: TextStyle(
+                  child: Text(
+                    context.login,
+                    style: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
@@ -128,7 +130,7 @@ class LoginView extends StatelessWidget {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Sign up',
+                        text: context.signUp,
                         style: const TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,

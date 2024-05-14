@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SearchBottomIconScreen extends StatefulWidget {
+  const SearchBottomIconScreen({super.key});
+
   @override
   _SearchBottomIconScreenState createState() => _SearchBottomIconScreenState();
 }
@@ -8,35 +10,34 @@ class SearchBottomIconScreen extends StatefulWidget {
 class _SearchBottomIconScreenState extends State<SearchBottomIconScreen> {
   @override
   Widget build(BuildContext context) {
-    var _appBar = new Container(
+    var appBar = Container(
 //      color: Colors.white,
-      padding: new EdgeInsets.only(top: 25.0),
-      child: new Column(
+      padding: const EdgeInsets.only(top: 25.0),
+      child: Column(
         children: <Widget>[
-          new Container(
-            padding: new EdgeInsets.only(
+          Container(
+            padding: const EdgeInsets.only(
                 top: 12.0, left: 10.0, bottom: 11.0, right: 10.0),
-            child: new GestureDetector(
-              child: new Row(
+            child: GestureDetector(
+              child: const Row(
                 children: <Widget>[
-                  new Icon(
+                  Icon(
                     Icons.search,
                     color: Colors.black,
                     size: 25.0,
                   ),
-                  new Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 5.0),
-                    child: new Text("Search",
-                        style:
-                            new TextStyle(fontSize: 17.0, color: Colors.grey)),
+                    child: Text("Search",
+                        style: TextStyle(fontSize: 17.0, color: Colors.grey)),
                   )
                 ],
               ),
               onTap: () {},
             ),
           ),
-          new Container(
-            margin: new EdgeInsets.only(top: 2.0),
+          Container(
+            margin: const EdgeInsets.only(top: 2.0),
             height: 1.5,
             color: Colors.grey[300],
           ),
@@ -45,10 +46,11 @@ class _SearchBottomIconScreenState extends State<SearchBottomIconScreen> {
     );
 
     return Scaffold(
-      appBar: PreferredSize(child: _appBar, preferredSize: Size.square(100.0)),
-      body: new Container(
-        child: Center(
-          child: new Text("Not yet implemented"),
+      appBar:
+          PreferredSize(preferredSize: const Size.square(100.0), child: appBar),
+      body: Container(
+        child: const Center(
+          child: Text("Not yet implemented"),
         ),
       ),
     );
