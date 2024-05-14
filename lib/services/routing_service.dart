@@ -1,5 +1,7 @@
 import 'package:bdaya_social_task/features/auth/login_view.dart';
-import 'package:bdaya_social_task/features/home/view.dart';
+import 'package:bdaya_social_task/features/home/InstaScreens/homeScreen.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/view.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/home/view.dart';
 import 'package:bdaya_social_task/features/post_details/view.dart';
 import 'package:bdaya_social_task/features/posts/view.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
@@ -28,7 +30,9 @@ class RoutingService {
       path: '/',
       name: AppRouteName.home,
       builder: (context, state) {
-        return HomeView.hooked();
+        // return HomeView.hooked();
+        return NavigationMenuView.hooked();
+        // return const HomeScreen();
       },
       redirect: (context, state) {
         if (userService.currentUser.of(context) == null) {

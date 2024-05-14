@@ -1,4 +1,6 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
+import 'package:bdaya_social_task/di/get_it_config.dart';
+import 'package:bdaya_social_task/services/user_service.dart';
 import 'package:flutter/gestures.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +36,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Align(
@@ -100,7 +102,9 @@ class LoginView extends StatelessWidget {
                   height: 24.0,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    getIt<UserService>().currentUser.$ = 'sami';
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     minimumSize: const Size(120, 40),
@@ -119,8 +123,8 @@ class LoginView extends StatelessWidget {
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     text: 'Don\'t have an account? ',
-                    style: const TextStyle(
-                      color: Colors.black,
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
                     ),
                     children: <TextSpan>[
                       TextSpan(

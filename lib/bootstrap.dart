@@ -14,6 +14,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   getIt.allowReassignment = true;
   setPathUrlStrategy();
 
-  configureDependencies(env: 'dev');
+  configureDependencies(env: 'prod');
   runApp(await builder());
 }

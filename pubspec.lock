@@ -286,6 +286,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.2"
+  flutter_staggered_grid_view:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_grid_view
+      sha256: "19e7abb550c96fbfeb546b23f3ff356ee7c59a019a651f8f102a4ba9b7349395"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.7.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -408,6 +416,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.6.1"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.19.0"
   io:
     dependency: transitive
     description:
@@ -648,6 +664,30 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.3"
+  reactive_forms:
+    dependency: "direct main"
+    description:
+      name: reactive_forms
+      sha256: b7d64d8fe45c19f506c762e219f4c6a3bdcfc4842d6fba98f866be5fca75d8e5
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "16.1.1"
+  reactive_forms_annotations:
+    dependency: "direct main"
+    description:
+      name: reactive_forms_annotations
+      sha256: "864485c4c5b0acae6eb1f6ee9c2e7ef04532a3055d8af3903b356f5a9eb3594d"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.3.0"
+  reactive_forms_generator:
+    dependency: "direct dev"
+    description:
+      name: reactive_forms_generator
+      sha256: "162ba1b331e43657cd128629feec6473e8ec26fa96944714b0c08b12beba4df1"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.8.0"
   recase:
     dependency: transitive
     description:
@@ -664,8 +704,24 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.27.7"
-  shared_preferences:
+  scroll_bars_common:
     dependency: transitive
+    description:
+      name: scroll_bars_common
+      sha256: "9a46b430ca602b4fb6c15c6f021d85fd00e561b0b698f11cb13c9e032ee9d93e"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.0"
+  scroll_bottom_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: scroll_bottom_navigation_bar
+      sha256: "916c3889c349044a03339020dcaf7ca6d9c14662e84f030f4c57b37df498aca9"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.0"
+  shared_preferences:
+    dependency: "direct main"
     description:
       name: shared_preferences
       sha256: d3bbe5553a986e83980916ded2f0b435ef2e1893dfaa29d5a7a790d0eca12180

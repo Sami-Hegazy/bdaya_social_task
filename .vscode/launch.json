@@ -2,21 +2,21 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Bdaya_Social_Task Development",
+        "name": "launch Development",
         "request": "launch",
         "type": "dart",
         "program": "lib/main_development.dart",
         "args": ["--flavor", "Development", "--target", "lib/main_development.dart" ]
       },
       {
-        "name": "Bdaya_Social_Task Production",
+        "name": "launch Production",
         "request": "launch",
         "type": "dart",
         "program": "lib/main_production.dart",
         "args": ["--flavor", "Production", "--target", "lib/main_production.dart" ]
       },
       {
-        "name": "Bdaya_Social_Task Staging",
+        "name": "launch Staging",
         "request": "launch",
         "type": "dart",
         "program": "lib/main_staging.dart",

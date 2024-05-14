@@ -4,6 +4,7 @@ import 'package:bdaya_social_task/app/view/splash.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/services/init_service.dart';
 import 'package:bdaya_social_task/services/routing_service.dart';
+import 'package:bdaya_social_task/services/theme_service.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -12,30 +13,32 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SharedValue.wrapApp(
-      MaterialApp.router(
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        scrollBehavior: const MaterialScrollBehavior().copyWith(
-          dragDevices: {...PointerDeviceKind.values},
-        ),
-        routerConfig: getIt<RoutingService>().router,
-        builder: (context, child) {
-          return FutureBuilder(
-            future: getIt<InitService>().init(),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return ErrorWidget(snapshot.error!);
-              }
-              if (snapshot.connectionState == ConnectionState.done) {
-                return child!;
-              }
-              return const SplashScreen();
-            },
-          );
-        },
-      ),
+      Builder(builder: (context) {
+        return MaterialApp.router(
+          theme: getIt<ThemeService>().appTheme.of(context),
+          // darkTheme: ThemeData.dark(),
+          // themeMode: ,
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {...PointerDeviceKind.values},
+          ),
+          debugShowCheckedModeBanner: false,
+          routerConfig: getIt<RoutingService>().router,
+          builder: (context, child) {
+            return FutureBuilder(
+              future: getIt<InitService>().init(),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return ErrorWidget(snapshot.error!);
+                }
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return child!;
+                }
+                return const SplashScreen();
+              },
+            );
+          },
+        );
+      }),
     );
   }
 }
