@@ -1,3 +1,4 @@
+import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:flutter/material.dart';
 
 class PostItem extends StatelessWidget {
@@ -79,7 +80,7 @@ class PostItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '$likes likes',
+                '$likes ${context.likes}',
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),

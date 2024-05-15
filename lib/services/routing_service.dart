@@ -31,7 +31,7 @@ class RoutingService {
         return NavigationMenuView.hooked();
       },
       redirect: (context, state) {
-        if (userService.currentUser.of(context) == null) {
+        if (userService.currentUserIdRx.of(context) == null) {
           return state.namedLocation(
             AppRouteName.auth,
             queryParameters: {
@@ -49,7 +49,7 @@ class RoutingService {
         return LoginView.hooked();
       },
       redirect: (context, state) {
-        if (userService.currentUser.of(context) != null) {
+        if (userService.currentUserIdRx.of(context) != null) {
           final oldRoute = state.uri.queryParameters['old_route'] ?? '/';
           return oldRoute;
         }
@@ -64,7 +64,7 @@ class RoutingService {
       },
       redirect: (context, state) {
         //route Permission
-        if (userService.currentUser.of(context) == null) {
+        if (userService.currentUserIdRx.of(context) == null) {
           return state.namedLocation(
             AppRouteName.auth,
             queryParameters: {

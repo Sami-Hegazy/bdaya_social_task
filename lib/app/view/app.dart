@@ -19,9 +19,7 @@ class App extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          theme: getIt<ThemeService>().appTheme.of(context),
-          // darkTheme: ThemeData.dark(),
-          // themeMode: ,
+          theme: getIt<ThemeService>().appTheme.of(context).toTheme,
           scrollBehavior: const MaterialScrollBehavior().copyWith(
             dragDevices: {...PointerDeviceKind.values},
           ),

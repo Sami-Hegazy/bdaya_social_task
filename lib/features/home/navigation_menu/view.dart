@@ -33,26 +33,22 @@ class NavigationMenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: NavigationBar(
-          height: 35,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          elevation: 0,
-          selectedIndex: controller.selectedIndexRx.of(context),
-          onDestinationSelected: (value) {
-            controller.selectedIndexRx.$ = value;
-          },
-          destinations: const [
-            NavigationDestination(icon: Icon(Icons.home), label: ''),
-            NavigationDestination(icon: Icon(Icons.search), label: ''),
-            NavigationDestination(
-                icon: Icon(Icons.add_box_outlined), label: ''),
-            NavigationDestination(
-                icon: Icon(Icons.slow_motion_video_sharp), label: ''),
-            NavigationDestination(icon: Icon(Icons.person_pin), label: ''),
-          ],
-        ),
+      bottomNavigationBar: NavigationBar(
+        height: 45,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        elevation: 0,
+        selectedIndex: controller.selectedIndexRx.of(context),
+        onDestinationSelected: (value) {
+          controller.selectedIndexRx.$ = value;
+        },
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: ''),
+          NavigationDestination(icon: Icon(Icons.search), label: ''),
+          NavigationDestination(icon: Icon(Icons.add_box_outlined), label: ''),
+          NavigationDestination(
+              icon: Icon(Icons.slow_motion_video_sharp), label: ''),
+          NavigationDestination(icon: Icon(Icons.person_pin), label: ''),
+        ],
       ),
       body: controller.screensList[controller.selectedIndexRx.of(context)],
     );

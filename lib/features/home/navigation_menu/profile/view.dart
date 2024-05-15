@@ -184,7 +184,6 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            fillOverscroll: true,
             child: DefaultTabController(
               length: 3,
               child: Column(
@@ -259,37 +258,6 @@ class ProfileView extends StatelessWidget {
                             );
                           },
                         ),
-                        // StaggeredGridView.countBuilder(
-                        //   crossAxisCount: 3,
-                        //   itemCount: 20, // Number of items in your grid
-                        //   itemBuilder: (BuildContext context, int index) =>
-                        //       Container(
-                        //     color: Colors.grey,
-                        //     child: Center(
-                        //       child: Text(
-                        //         'Item $index',
-                        //         style: const TextStyle(fontSize: 20),
-                        //       ),
-                        //     ),
-                        //   ),
-                        //   staggeredTileBuilder: (int index) =>
-                        //       StaggeredTile.count(1,
-                        //           index.isEven ? 1.5 : 1), // Adjust tile height
-                        //   mainAxisSpacing: 4.0,
-                        //   crossAxisSpacing: 4.0,
-                        // ),
-                        // Wrap(
-                        //   clipBehavior: Clip.none,
-                        //   children: [
-                        //     for (var i = 0; i < 100; i++)
-                        //       Container(
-                        //         margin: const EdgeInsets.all(8),
-                        //         color: Colors.amber,
-                        //         height: 50,
-                        //         width: MediaQuery.of(context).size.width / 4,
-                        //       ),
-                        //   ],
-                        // ),
                       ],
                     ),
                   ),
@@ -305,6 +273,7 @@ class ProfileView extends StatelessWidget {
 
 List<String> imageList = [
   'assets/images/pic0.png',
+  'assets/images/pic1.png',
   'assets/images/pic2.png',
   'assets/images/pic3.png',
   'assets/images/pic4.png',
@@ -318,5 +287,4 @@ List<String> imageList = [
   'assets/images/pic11.png',
   'assets/images/pic12.png',
   'assets/images/pic13.png',
-  'assets/images/pic15.png',
 ];

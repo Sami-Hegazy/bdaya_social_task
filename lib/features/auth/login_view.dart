@@ -1,8 +1,7 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
-import 'package:bdaya_social_task/utils/extentions.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:flutter/gestures.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
@@ -37,11 +36,10 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Align(
+    return SafeArea(
+      child: Scaffold(
+        // backgroundColor: Colors.white,
+        body: Align(
           alignment: Alignment.center,
           child: Container(
             constraints: const BoxConstraints(maxWidth: 500),
@@ -105,7 +103,8 @@ class LoginView extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    getIt<UserService>().currentUser.$ = 'sami';
+                    // getIt<UserService>().currentUserIdRx.$ = 'sami';
+                    getIt<UserService>().login();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
