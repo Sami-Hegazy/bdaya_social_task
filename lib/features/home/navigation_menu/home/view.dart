@@ -49,6 +49,8 @@ class HomeView extends StatelessWidget {
       ),
     );
 
+    final postsList = controller.postsService.postsListRx.of(context);
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -60,19 +62,17 @@ class HomeView extends StatelessWidget {
               color: Colors.grey[300],
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return PostItem(
-                  username: 'user_$index',
-                  imageUrl: 'assets/images/pic$index.png',
-                  likes: index * 10,
-                  comments: index * 5,
-                  caption: 'This is post number $index',
-                );
-              },
-              childCount: 14,
-            ),
+          SliverList.builder(
+            itemCount: postsList.length,
+            itemBuilder: (context, index) {
+              return PostItem(
+                username: 'user_$index',
+                imageUrl: postsList[index].imageUrl,
+                likes: index * 10,
+                comments: index * 5,
+                caption: postsList[index].title,
+              );
+            },
           ),
         ],
       ),

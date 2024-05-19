@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/services/cache_service.dart';
+import 'package:bdaya_social_task/services/posts_service.dart';
 import 'package:bdaya_social_task/services/theme_service.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
 import 'package:injectable/injectable.dart';
@@ -21,6 +22,6 @@ class InitService {
     await getIt<UserService>().init();
     await getIt<CacheServiceBase>().init();
     await getIt<ThemeService>().loadThemeFromCache();
-    // await getIt<CategoriesService>().init();
+    await getIt<PostsService>().init();
   }
 }

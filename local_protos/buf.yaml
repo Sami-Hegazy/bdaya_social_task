@@ -1,0 +1,8 @@
+version: v1
+name: buf.build/bdaya-dev/bdaya-intern-local
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT

@@ -105,7 +105,7 @@ class PostItem extends StatelessWidget {
               ),
               const SizedBox(height: 4.0),
               Text(
-                'View all $comments comments',
+                context.viewComments,
                 style: TextStyle(
                   color: Colors.grey[600],
                 ),

@@ -1,6 +1,7 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
+import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -89,43 +90,26 @@ class ProfileView extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          GestureDetector(
-                            child: const Column(
-                              children: <Widget>[
-                                Text(
-                                  "72",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18.0),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 3.0),
-                                  child: Text(
-                                    "posts",
-                                    style: TextStyle(
-                                        color: Colors.grey, fontSize: 16.0),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
                           Container(
                             margin: const EdgeInsets.only(left: 10.0),
                             child: GestureDetector(
-                              child: const Column(
-                                children: <Widget>[
-                                  Text(
-                                    "352",
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "72",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18.0),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0,
+                                    ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 3.0),
+                                    padding: const EdgeInsets.only(top: 3.0),
                                     child: Text(
-                                      "followers",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16.0),
+                                      context.posts,
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 16.0,
+                                      ),
                                     ),
                                   )
                                 ],
@@ -135,20 +119,48 @@ class ProfileView extends StatelessWidget {
                           Container(
                             margin: const EdgeInsets.only(left: 10.0),
                             child: GestureDetector(
-                              child: const Column(
-                                children: <Widget>[
-                                  Text(
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "352",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3.0),
+                                    child: Text(
+                                      context.followers,
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 16.0,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(left: 10.0),
+                            child: GestureDetector(
+                              child: Column(
+                                children: [
+                                  const Text(
                                     "580",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18.0),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 3.0),
+                                    padding: const EdgeInsets.only(top: 3.0),
                                     child: Text(
-                                      "following",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 16.0),
+                                      context.following,
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 16.0,
+                                      ),
                                     ),
                                   )
                                 ],
@@ -162,15 +174,16 @@ class ProfileView extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.grey, width: 1.0),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(5.0))),
+                            border: Border.all(color: Colors.grey, width: 1.0),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(5.0),
+                            ),
+                          ),
                           height: 30.0,
                           width: 200.0,
-                          child: const Text(
-                            "Edit Profile",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          child: Text(
+                            context.editProfile,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                         onTap: () {},

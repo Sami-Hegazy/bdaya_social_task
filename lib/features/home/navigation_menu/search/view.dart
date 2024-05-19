@@ -1,6 +1,7 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/profile/view.dart';
+import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -43,7 +44,7 @@ class SearchView extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Search',
+                    hintText: context.search,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: const BorderSide(color: Colors.transparent),

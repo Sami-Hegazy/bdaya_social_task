@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/helper/constant.dart';
-import 'package:bdaya_social_task/models/user_info.dart';
 import 'package:bdaya_social_task/services/cache_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:oidc/oidc.dart';
