@@ -2,7 +2,6 @@ import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
 import 'package:bdaya_social_task/helper/extentions.dart';
-import 'package:flutter/gestures.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
 
@@ -67,39 +66,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 24.0,
-                ),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter your email',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(
-                  height: 8.0,
-                ),
-                TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter your password',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(
-                  height: 24.0,
+                  height: 34.0,
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -119,25 +86,6 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 24.0,
-                ),
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    text: 'Don\'t have an account? ',
-                    style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyMedium!.color,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: context.signUp,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline,
-                        ),
-                        recognizer: TapGestureRecognizer()..onTap = () {},
-                      ),
-                    ],
-                  ),
                 ),
               ],
             ),

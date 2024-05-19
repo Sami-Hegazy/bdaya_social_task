@@ -1,5 +1,7 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
+import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
+import 'package:bdaya_social_task/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -41,17 +43,19 @@ class ProfileView extends StatelessWidget {
             leading: const Icon(Icons.lock_outline_sharp),
             actions: [
               IconButton(
-                  icon: const Icon(Icons.update),
-                  iconSize: 25.0,
-                  onPressed: () {}),
-              IconButton(
                   icon: const Icon(Icons.person_add),
                   iconSize: 25.0,
                   onPressed: () {}),
               IconButton(
-                  icon: const Icon(Icons.format_list_bulleted),
+                  icon: const Icon(Icons.settings),
                   iconSize: 25.0,
                   onPressed: () {}),
+              IconButton(
+                  icon: const Icon(Icons.logout),
+                  iconSize: 25.0,
+                  onPressed: () {
+                    getIt<UserService>().logout();
+                  })
             ],
           ),
           const SliverToBoxAdapter(

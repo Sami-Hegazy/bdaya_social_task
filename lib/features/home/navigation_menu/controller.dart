@@ -1,6 +1,7 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/profile/view.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/home/view.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/search/view.dart';
 import 'package:flutter/material.dart';
 
 @lazySingleton
@@ -11,9 +12,9 @@ class NavigationMenuController extends BdayaCombinedController {
 
   final screensList = [
     HomeView.hooked(),
-    const Center(child: Text('second')),
+    SearchView.hooked(),
     const Center(child: Text('Third')),
-    const Center(child: Text('Fourth')),
+    const Center(child: Text('Reels')),
     ProfileView.hooked(),
   ];
 }

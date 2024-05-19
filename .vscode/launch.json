@@ -6,6 +6,7 @@
         "request": "launch",
         "type": "dart",
         "program": "lib/main_development.dart",
+        // "deviceId": "chrome",
         "args": [
           "--flavor",
           "Development",
@@ -13,11 +14,6 @@
           "lib/main_development.dart",
           "--web-port",
           "12345" ,
-
-          // "dart_define",
-          // "AUTH0_DOMAIN=dev-lzkoqzcdptnc4dm7.us.auth0.com",
-          // "--dart_define",
-          // "AUTH0_CLIENT_ID=GB2o0BTWrijwtw2Ug9hbf5BpE6ncC1DH"
         ]
       },
       {

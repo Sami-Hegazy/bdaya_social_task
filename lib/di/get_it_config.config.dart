@@ -55,16 +55,16 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.lazySingleton<_i11.RoutingService>(
         () => _i11.RoutingService(gh<_i10.UserService>()));
-    gh.lazySingleton<_i10.UserService>(
-      () => _i10.RealUser(),
-      registerFor: {_prod},
-    );
     gh.lazySingleton<_i12.HomeController>(() => _i12.HomeController(
           gh<_i7.GrpcService>(),
           gh<_i9.CacheServiceBase>(),
         ));
     gh.lazySingleton<_i9.CacheServiceBase>(
       () => _i9.RealCacheService(),
+      registerFor: {_prod},
+    );
+    gh.lazySingleton<_i10.UserService>(
+      () => _i10.RealUser(gh<_i9.CacheServiceBase>()),
       registerFor: {_prod},
     );
     gh.lazySingleton<_i13.PostDetailsController>(
