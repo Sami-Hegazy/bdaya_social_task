@@ -1,9 +1,10 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
-import 'controller.dart';
+import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:flutter/material.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
 
-class PostsView extends StatelessWidget {
-  const PostsView({
+class MomentsShareView extends StatelessWidget {
+  const MomentsShareView({
     super.key,
     required this.controller,
   });
@@ -16,7 +17,7 @@ class PostsView extends StatelessWidget {
     List<Object?>? keys,
   }) {
     return HookBuilder(
-      builder: (context) => PostsView(
+      builder: (context) => MomentsShareView(
         controller: useBdayaViewController(
           hookMode: hookMode,
           instanceName: instanceName,
@@ -28,13 +29,13 @@ class PostsView extends StatelessWidget {
     );
   }
 
-  final PostsController controller;
+  final NavigationMenuController controller;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Welcome to Posts'),
+        child: Text(context.shareMoment),
       ),
     );
   }

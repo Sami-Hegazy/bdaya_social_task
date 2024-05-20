@@ -2,9 +2,11 @@ import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
 import 'package:bdaya_social_task/helper/extentions.dart';
+import 'package:bdaya_social_task/services/routing_service.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({
@@ -77,9 +79,9 @@ class ProfileView extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(top: 10.0, bottom: 5.0),
                         alignment: Alignment.bottomLeft,
-                        child: const Text(
-                          "Sami Hegazi",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                        child: Text(
+                          controller.userService.userInfo.name,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -90,83 +92,18 @@ class ProfileView extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            margin: const EdgeInsets.only(left: 10.0),
-                            child: GestureDetector(
-                              child: Column(
-                                children: [
-                                  const Text(
-                                    "72",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18.0,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 3.0),
-                                    child: Text(
-                                      context.posts,
-                                      style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 16.0,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                          NumTextColumn(
+                            number: '72',
+                            text: context.posts,
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 10.0),
-                            child: GestureDetector(
-                              child: Column(
-                                children: [
-                                  const Text(
-                                    "352",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18.0,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 3.0),
-                                    child: Text(
-                                      context.followers,
-                                      style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 16.0,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                          NumTextColumn(
+                            number: '352',
+                            text: context.followers,
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 10.0),
-                            child: GestureDetector(
-                              child: Column(
-                                children: [
-                                  const Text(
-                                    "580",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18.0),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 3.0),
-                                    child: Text(
-                                      context.following,
-                                      style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 16.0,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          )
+                          NumTextColumn(
+                            number: '580',
+                            text: context.following,
+                          ),
                         ],
                       ),
                       const SizedBox(height: 24),
@@ -179,14 +116,23 @@ class ProfileView extends StatelessWidget {
                               Radius.circular(5.0),
                             ),
                           ),
-                          height: 30.0,
+                          height: 40.0,
                           width: 200.0,
-                          child: Text(
-                            context.editProfile,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          child: Center(
+                            child: Text(
+                              context.editProfile,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          context.goNamed(
+                            AppRouteName.editProfile,
+                            extra: controller.userService.userInfo,
+                          );
+                        },
                       ),
                     ],
                   )
@@ -283,6 +229,47 @@ class ProfileView extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class NumTextColumn extends StatelessWidget {
+  const NumTextColumn({
+    super.key,
+    required this.number,
+    required this.text,
+  });
+
+  final String number;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(left: 10.0),
+      child: GestureDetector(
+        child: Column(
+          children: [
+            Text(
+              number,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 3.0),
+              child: Text(
+                text,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16.0,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

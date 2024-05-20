@@ -2,7 +2,7 @@
     "login" : "تسجيل الدخول",
     "sign_up":"إنشاء حساب",
     "likes":"الإعجابات",
-    "view_comments":"عرض جميع التعليقات",
+    "view_comments":"عرض {} من التعليقات",
     "search":"البحث",
     "followers":"متابعون",
     "following":"تتابع",

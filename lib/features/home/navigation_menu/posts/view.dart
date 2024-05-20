@@ -1,14 +1,16 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/home/widgets/home_app_bar.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/home/widgets/post_item.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/home/widgets/stories.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/posts/widgets/home_app_bar.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/posts/widgets/post_item.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/posts/widgets/stories.dart';
+import 'package:bdaya_social_task/services/routing_service.dart';
 import 'package:bdaya_social_task/services/theme_service.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({
+class PostView extends StatelessWidget {
+  const PostView({
     super.key,
     required this.controller,
   });
@@ -21,7 +23,7 @@ class HomeView extends StatelessWidget {
     List<Object?>? keys,
   }) {
     return HookBuilder(
-      builder: (context) => HomeView(
+      builder: (context) => PostView(
         controller: useBdayaViewController(
           hookMode: hookMode,
           instanceName: instanceName,
@@ -66,9 +68,15 @@ class HomeView extends StatelessWidget {
             itemCount: postsList.length,
             itemBuilder: (context, index) {
               return PostItem(
+                onTap: () {
+                  context.goNamed(
+                    AppRouteName.postDetails,
+                    pathParameters: {kPostId: index.toString()},
+                  );
+                },
                 username: 'user_$index',
                 imageUrl: postsList[index].imageUrl,
-                likes: index * 10,
+                likes: index == 0 ? 5 : index * 10,
                 comments: index * 5,
                 caption: postsList[index].title,
               );

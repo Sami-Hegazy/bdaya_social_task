@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:bdaya_social_task/services/routing_service.dart';
-import 'package:go_router/src/router.dart';
+import 'package:go_router/go_router.dart';
 
 //TODO: DELETE ME!
 class PostDetailsDto {}
@@ -42,7 +40,7 @@ class PostDetailsController extends BdayaCombinedRouteController {
     //this gets called for route changes to current (or child) routes
     queryParamsRx.$ = route.uri.queryParameters;
     //TODO: correct path parameters
-    idRx.$ = route.pathParameters['id'];
+    idRx.$ = route.pathParameters[kPostId];
   }
 
   Future<PostDetailsDto?> initFromId(String id) async {

@@ -9,7 +9,7 @@ extension Translate on BuildContext {
   String get search => tr('search');
   String get followers => tr('followers');
   String get following => tr('following');
-  String get editProfile => tr('Edit Profile');
+  String get editProfile => tr('edit_profile');
   String get shareMoment => tr('share_moment');
   String get posts => tr('posts');
 }
