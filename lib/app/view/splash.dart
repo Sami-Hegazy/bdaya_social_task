@@ -6,12 +6,14 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width / 1.5,
-        height: MediaQuery.of(context).size.width / 1.5,
-        child: Image.asset('assets/images/Instagram-logo.png'),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: Center(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width / 1.5,
+          height: MediaQuery.of(context).size.width / 1.5,
+          child: Image.asset('assets/images/Instagram-logo.png'),
+        ),
       ),
-    ));
+    );
   }
 }

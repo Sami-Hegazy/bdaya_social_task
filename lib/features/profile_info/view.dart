@@ -33,31 +33,35 @@ class ProfileInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            CircleAvatar(
-              radius: 50,
-              child: Image.asset('assets/images/friend_acc.png'),
-            ),
-            const SizedBox(height: 20),
-            ReadOnlyTextField(label: controller.userService.userInfo.name),
-            ReadOnlyTextField(label: controller.userService.userInfo.givenName),
-            ReadOnlyTextField(
-                label: controller.userService.userInfo.familyName),
-            ReadOnlyTextField(label: controller.userService.userInfo.email),
-            ReadOnlyTextField(label: controller.userService.userInfo.website),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                context.pop();
-              },
-              child: const Text('Save Changes'),
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 50,
+                child: Image.asset('assets/images/friend_acc.png'),
+              ),
+              const SizedBox(height: 20),
+              ReadOnlyTextField(label: controller.userService.userInfo.name),
+              ReadOnlyTextField(
+                  label: controller.userService.userInfo.givenName),
+              ReadOnlyTextField(
+                  label: controller.userService.userInfo.familyName),
+              ReadOnlyTextField(label: controller.userService.userInfo.email),
+              ReadOnlyTextField(label: controller.userService.userInfo.website),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  context.pop();
+                },
+                child: const Text('Save Changes'),
+              ),
+            ],
+          ),
         ),
       ),
     );

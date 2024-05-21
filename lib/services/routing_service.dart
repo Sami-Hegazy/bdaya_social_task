@@ -1,5 +1,5 @@
 import 'package:bdaya_social_task/features/auth/login_view.dart';
-import 'package:bdaya_social_task/features/edit_profile/view.dart';
+import 'package:bdaya_social_task/features/profile_info/view.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/moments_share/view.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/posts/view.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/profile/view.dart';
