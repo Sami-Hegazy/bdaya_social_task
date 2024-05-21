@@ -1,6 +1,6 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/posts/controller.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/posts/widgets/home_app_bar.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/posts/widgets/post_item.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/posts/widgets/stories.dart';
@@ -35,7 +35,7 @@ class PostView extends StatelessWidget {
     );
   }
 
-  final NavigationMenuController controller;
+  final PostController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/reels/controller.dart';
 import 'package:flutter/material.dart';
 
 class ReelsView extends StatelessWidget {
@@ -28,7 +28,7 @@ class ReelsView extends StatelessWidget {
     );
   }
 
-  final NavigationMenuController controller;
+  final ReelsController controller;
 
   @override
   Widget build(BuildContext context) {

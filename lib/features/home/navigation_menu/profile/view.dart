@@ -1,6 +1,6 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/di/get_it_config.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/profile/controller.dart';
 import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:bdaya_social_task/services/routing_service.dart';
 import 'package:bdaya_social_task/services/user_service.dart';
@@ -34,7 +34,7 @@ class ProfileView extends StatelessWidget {
     );
   }
 
-  final NavigationMenuController controller;
+  final ProfileController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class ProfileView extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: const Text('Sami_Hegazi'),
+            title: Text(controller.userService.userInfo.name),
             leading: const Icon(Icons.lock_outline_sharp),
             actions: [
               IconButton(
@@ -120,7 +120,7 @@ class ProfileView extends StatelessWidget {
                           width: 200.0,
                           child: Center(
                             child: Text(
-                              context.editProfile,
+                              context.profileInfo,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -129,7 +129,7 @@ class ProfileView extends StatelessWidget {
                         ),
                         onTap: () {
                           context.goNamed(
-                            AppRouteName.editProfile,
+                            AppRouteName.profileInfo,
                             extra: controller.userService.userInfo,
                           );
                         },

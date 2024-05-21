@@ -1,9 +1,10 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
+import 'package:go_router/go_router.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
 
-class EditProfileView extends StatelessWidget {
-  const EditProfileView({
+class ProfileInfoView extends StatelessWidget {
+  const ProfileInfoView({
     super.key,
     required this.controller,
   });
@@ -16,7 +17,7 @@ class EditProfileView extends StatelessWidget {
     List<Object?>? keys,
   }) {
     return HookBuilder(
-      builder: (context) => EditProfileView(
+      builder: (context) => ProfileInfoView(
         controller: useBdayaViewController(
           hookMode: hookMode,
           instanceName: instanceName,
@@ -28,7 +29,7 @@ class EditProfileView extends StatelessWidget {
     );
   }
 
-  final EditProfileController controller;
+  final ProfileInfoController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +39,9 @@ class EditProfileView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 50,
-              // You can use a placeholder image or load the user's profile picture here
-              backgroundImage: AssetImage('assets/images/friend_acc.png'),
+              child: Image.asset('assets/images/friend_acc.png'),
             ),
             const SizedBox(height: 20),
             ReadOnlyTextField(label: controller.userService.userInfo.name),
@@ -53,7 +53,7 @@ class EditProfileView extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Implement save changes functionality here
+                context.pop();
               },
               child: const Text('Save Changes'),
             ),
@@ -75,7 +75,6 @@ class ReadOnlyTextField extends StatelessWidget {
       readOnly: true,
       decoration: InputDecoration(
         labelText: label,
-        // border: const OutlineInputBorder(),
       ),
     );
   }

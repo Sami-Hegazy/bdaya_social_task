@@ -1,4 +1,5 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
+import 'package:go_router/go_router.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ class NavigationMenuView extends StatelessWidget {
   const NavigationMenuView({
     super.key,
     required this.controller,
+    required this.navigationShell,
   });
 
   static Widget hooked({
@@ -14,9 +16,11 @@ class NavigationMenuView extends StatelessWidget {
     Object? param1,
     Object? param2,
     List<Object?>? keys,
+    required StatefulNavigationShell navigationShell,
   }) {
     return HookBuilder(
       builder: (context) => NavigationMenuView(
+        navigationShell: navigationShell,
         controller: useBdayaViewController(
           hookMode: hookMode,
           instanceName: instanceName,
@@ -29,6 +33,14 @@ class NavigationMenuView extends StatelessWidget {
   }
 
   final NavigationMenuController controller;
+  final StatefulNavigationShell navigationShell;
+
+  void _goBranch(int index) {
+    navigationShell.goBranch(
+      index,
+      initialLocation: index == navigationShell.currentIndex,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +50,9 @@ class NavigationMenuView extends StatelessWidget {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         elevation: 0,
         selectedIndex: controller.selectedIndexRx.of(context),
-        onDestinationSelected: (value) {
-          controller.selectedIndexRx.$ = value;
+        onDestinationSelected: (index) {
+          controller.selectedIndexRx.$ = index;
+          _goBranch(index);
         },
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: ''),
@@ -50,7 +63,7 @@ class NavigationMenuView extends StatelessWidget {
           NavigationDestination(icon: Icon(Icons.person_pin), label: ''),
         ],
       ),
-      body: controller.screensList[controller.selectedIndexRx.of(context)],
+      body: navigationShell,
     );
   }
 }

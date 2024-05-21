@@ -20,7 +20,7 @@ const AUTH_REDIRECT_URL = '$BUNDLE_IDENTIFIER://login-callback';
 const AUTH_REDIRECT_URL_2 = '$BUNDLE_IDENTIFIER:/oauth2redirect';
 
 // ignore: constant_identifier_names
-const REDIRECT_WEB_URL = 'http://localhost:12345/redirect.html';
+const REDIRECT_WEB_URL = 'http://localhost:55555/redirect.html';
 
 // ignore: constant_identifier_names
 const REFRESH_TOKEN = 'refresh_token';

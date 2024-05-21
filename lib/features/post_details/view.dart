@@ -57,6 +57,7 @@ class PostDetailsView extends StatelessWidget {
             slivers: [
               SliverAppBar.large(
                 // leading: const CustomBackButton(),
+
                 expandedHeight: 500,
                 pinned: true,
                 floating: true,

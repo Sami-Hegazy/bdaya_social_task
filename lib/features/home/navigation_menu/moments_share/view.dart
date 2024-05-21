@@ -1,7 +1,7 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/moments_share/controller.dart';
 import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:flutter/material.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
 
 class MomentsShareView extends StatelessWidget {
   const MomentsShareView({
@@ -29,7 +29,7 @@ class MomentsShareView extends StatelessWidget {
     );
   }
 
-  final NavigationMenuController controller;
+  final MomentsShareController controller;
 
   @override
   Widget build(BuildContext context) {

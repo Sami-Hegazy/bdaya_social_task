@@ -1,6 +1,6 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
-import 'package:bdaya_social_task/features/home/navigation_menu/controller.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/profile/view.dart';
+import 'package:bdaya_social_task/features/home/navigation_menu/search/controller.dart';
 import 'package:bdaya_social_task/helper/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -31,7 +31,7 @@ class SearchView extends StatelessWidget {
     );
   }
 
-  final NavigationMenuController controller;
+  final SearchViewController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -53,6 +53,7 @@ dependencies:
   oidc: ^0.5.2
   oidc_default_store: ^0.2.0+8
   flex_color_scheme: ^7.3.1
+  sliding_clipped_nav_bar: ^3.1.1
 
 dev_dependencies:
   flutter_test:
