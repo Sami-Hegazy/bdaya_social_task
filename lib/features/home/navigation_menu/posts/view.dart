@@ -8,6 +8,7 @@ import 'package:bdaya_social_task/services/routing_service.dart';
 import 'package:bdaya_social_task/services/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class PostView extends StatelessWidget {
   const PostView({
@@ -67,18 +68,24 @@ class PostView extends StatelessWidget {
           SliverList.builder(
             itemCount: postsList.length,
             itemBuilder: (context, index) {
-              return PostItem(
-                onTap: () {
-                  context.goNamed(
-                    AppRouteName.postDetails,
-                    pathParameters: {kPostId: index.toString()},
-                  );
-                },
-                username: 'user_$index',
-                imageUrl: postsList[index].imageUrl,
-                likes: index == 0 ? 5 : index * 10,
-                comments: index * 5,
-                caption: postsList[index].title,
+              return Animate(
+                effects: const [FadeEffect(), ScaleEffect()],
+                delay: const Duration(milliseconds: 500),
+                child: SizedBox(
+                  child: PostItem(
+                    onTap: () {
+                      context.goNamed(
+                        AppRouteName.postDetails,
+                        pathParameters: {kPostId: index.toString()},
+                      );
+                    },
+                    username: 'user_$index',
+                    imageUrl: postsList[index].imageUrl,
+                    likes: index == 0 ? 5 : index * 10,
+                    comments: index * 5,
+                    caption: postsList[index].title,
+                  ),
+                ),
               );
             },
           ),

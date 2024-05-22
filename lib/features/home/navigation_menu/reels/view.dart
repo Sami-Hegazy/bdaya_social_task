@@ -1,5 +1,6 @@
 import 'package:bdaya_flutter_common/bdaya_flutter_common.dart';
 import 'package:bdaya_social_task/features/home/navigation_menu/reels/controller.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ReelsView extends StatelessWidget {
@@ -32,9 +33,9 @@ class ReelsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Reels'),
+        child: const Text('reels').tr(),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:bdaya_social_task/services/theme_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -20,15 +21,10 @@ class HomeAppBar extends StatelessWidget {
           fontFamily: 'Billabong',
           fontSize: 30.0,
         ),
-      ),
+      ).animate().fade(delay: const Duration(seconds: 1)).scaleX(),
       actions: [
         IconButton(
           icon: const Icon(Icons.favorite_border),
-          iconSize: 25.0,
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(Icons.send),
           iconSize: 25.0,
           onPressed: () {},
         ),
@@ -42,13 +38,15 @@ class HomeAppBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.language),
           iconSize: 25.0,
-          onPressed: () {
+          onPressed: () async {
             Locale currentLocale = context.locale;
             if (currentLocale.languageCode == 'ar') {
-              context.setLocale(const Locale('en', 'US'));
+              await context.setLocale(const Locale('en', 'US'));
             } else {
-              context.setLocale(const Locale('ar', 'EG'));
+              await context.setLocale(const Locale('ar', 'EG'));
             }
+            final engine = WidgetsFlutterBinding.ensureInitialized();
+            engine.performReassemble();
           },
         )
       ],

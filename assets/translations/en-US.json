@@ -8,6 +8,9 @@
     "following":"followers",
     "profile_info":"Profile Info",
     "share_moment":"Share the moment with world",
-    "posts":"Posts"
-
+    "posts":"Posts",
+    "home":"Home",
+    "explore":"Explore",
+    "reels":"Reels",
+    "profile":"Profile"
 }
