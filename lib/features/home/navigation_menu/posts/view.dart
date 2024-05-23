@@ -73,6 +73,7 @@ class PostView extends StatelessWidget {
                 delay: const Duration(milliseconds: 500),
                 child: SizedBox(
                   child: PostItem(
+                    key: Key('post_$index'),
                     onTap: () {
                       context.goNamed(
                         AppRouteName.postDetails,

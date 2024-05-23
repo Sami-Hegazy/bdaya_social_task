@@ -70,7 +70,6 @@ class LoginView extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // getIt<UserService>().currentUserIdRx.$ = 'sami';
                     getIt<UserService>().login();
                   },
                   style: ElevatedButton.styleFrom(
